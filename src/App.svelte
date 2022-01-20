@@ -15,9 +15,22 @@
 
     email = data.email;
     message = data.message;
-    isOpen = false;
 
-    console.log({ email, message, isOpen });
+    fetch("http://localhost:3000/contact", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, message }),
+    })
+      .then((res) => {
+        isOpen = false;
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something went wrong. Please try again later");
+      });
   }
 </script>
 
@@ -42,6 +55,7 @@
           <label for="email">Your Email:</label>
           <input
             id="email"
+            type="email"
             name="email"
             autocomplete="email"
             placeholder="email@example.org"
@@ -51,6 +65,7 @@
         <div>
           <label for="message">Message:</label>
           <textarea
+            maxlength="300"
             name="message"
             id="message"
             placeholder="Send me a question!"
@@ -58,7 +73,6 @@
           <button type="submit">Send</button>
         </div>
       </form>
-    {:else}
       <h2>Thank you for your message!</h2>
     {/if}
   </section>
