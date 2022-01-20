@@ -73,6 +73,7 @@
           <button type="submit">Send</button>
         </div>
       </form>
+    {:else}
       <h2>Thank you for your message!</h2>
     {/if}
   </section>
