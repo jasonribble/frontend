@@ -16,7 +16,7 @@
     email = data.email;
     message = data.message;
 
-    fetch("http://localhost:3000/contact", {
+    fetch("/contact", {
       method: "POST",
       mode: "cors",
       headers: {
