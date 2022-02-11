@@ -16,7 +16,7 @@
     email = data.email;
     message = data.message;
 
-    fetch("/contact", {
+    fetch("https://api.jasonribble.com/contact", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -25,6 +25,13 @@
       body: JSON.stringify({ email, message }),
     })
       .then((res) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong");
+        }
+      })
+      .then((data) => {
         isOpen = false;
       })
       .catch((err) => {
