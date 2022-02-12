@@ -25,10 +25,10 @@
       body: JSON.stringify({ email, message }),
     })
       .then((res) => {
-        if (response.ok) {
-          return response.json();
+        if (res.ok) {
+          return res;
         } else {
-          throw new Error("Something went wrong");
+          throw new Error("Response code not ok");
         }
       })
       .then((data) => {
