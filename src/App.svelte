@@ -1,4 +1,22 @@
 <script>
+  // Keap form script
+  (function (a, b) {
+    var c = a.keapForms || { SNIPPET_VERSION: '1.1.0', appId: 'nfh457' },
+      d = b.createElement('script');
+    (d.type = 'text/javascript'),
+      (d.crossOrigin = 'anonymous'),
+      (d.defer = !0),
+      (d.src =
+        'https://forms.keap.app/lib/public-form-embed.js?appId=nfh457&version=1.1.0'),
+      (d.onload = function () {
+        var b = a.keapForms;
+        b.renderAllForms
+          ? !b.invoked && ((b.invoked = !0), b.renderAllForms())
+          : console.error('[Keap Forms] Error: could not load');
+      });
+    var e = b.getElementsByTagName('script')[0];
+    e.parentNode.insertBefore(d, e), (a.keapForms = c);
+  })(window, document);
 </script>
 
 <header>
@@ -20,25 +38,6 @@
     data-path="contact-us/1918074491794537"
     class="keap-custom-form"
   />
-  <script>
-    (function (a, b) {
-      var c = a.keapForms || { SNIPPET_VERSION: '1.1.0', appId: 'nfh457' },
-        d = b.createElement('script');
-      (d.type = 'text/javascript'),
-        (d.crossOrigin = 'anonymous'),
-        (d.defer = !0),
-        (d.src =
-          'https://forms.keap.app/lib/public-form-embed.js?appId=nfh457&version=1.1.0'),
-        (d.onload = function () {
-          var b = a.keapForms;
-          b.renderAllForms
-            ? !b.invoked && ((b.invoked = !0), b.renderAllForms())
-            : console.error('[Keap Forms] Error: could not load');
-        });
-      var e = b.getElementsByTagName('script')[0];
-      e.parentNode.insertBefore(d, e), (a.keapForms = c);
-    })(window, document);
-  </script>
 </main>
 
 <footer class="content">
