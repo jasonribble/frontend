@@ -1,4 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/ribble/jasonribble.com/
-    - /bin/cp -R public/* $DEPLOYPATH
