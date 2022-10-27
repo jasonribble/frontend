@@ -1,44 +1,4 @@
 <script>
-  let email;
-  let message;
-  let isOpen = true;
-
-  function onSubmit(e) {
-    const formData = new FormData(e.target);
-
-    const data = {};
-
-    for (let field of formData) {
-      const [key, value] = field;
-      data[key] = value;
-    }
-
-    email = data.email;
-    message = data.message;
-
-    fetch("https://api.jasonribble.com/contact", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, message }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res;
-        } else {
-          throw new Error("Response code not ok");
-        }
-      })
-      .then((data) => {
-        isOpen = false;
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Something went wrong. Please try again later");
-      });
-  }
 </script>
 
 <header>
@@ -54,40 +14,35 @@
 </header>
 
 <main class="content">
-  <section>
-    {#if isOpen}
-      <h2>Contact Me</h2>
-      <form on:submit|preventDefault={onSubmit}>
-        <div>
-          <label for="email">Your Email:</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            autocomplete="email"
-            placeholder="email@example.org"
-          />
-        </div>
-
-        <div>
-          <label for="message">Message:</label>
-          <textarea
-            maxlength="300"
-            name="message"
-            id="message"
-            placeholder="Send me a question!"
-          />
-          <button type="submit">Send</button>
-        </div>
-      </form>
-    {:else}
-      <h2>Thank you for your message!</h2>
-    {/if}
-  </section>
+  <div
+    data-form-slug="1918074491794537"
+    data-env="production"
+    data-path="contact-us/1918074491794537"
+    class="keap-custom-form"
+  />
+  <script>
+    (function (a, b) {
+      var c = a.keapForms || { SNIPPET_VERSION: '1.1.0', appId: 'nfh457' },
+        d = b.createElement('script');
+      (d.type = 'text/javascript'),
+        (d.crossOrigin = 'anonymous'),
+        (d.defer = !0),
+        (d.src =
+          'https://forms.keap.app/lib/public-form-embed.js?appId=nfh457&version=1.1.0'),
+        (d.onload = function () {
+          var b = a.keapForms;
+          b.renderAllForms
+            ? !b.invoked && ((b.invoked = !0), b.renderAllForms())
+            : console.error('[Keap Forms] Error: could not load');
+        });
+      var e = b.getElementsByTagName('script')[0];
+      e.parentNode.insertBefore(d, e), (a.keapForms = c);
+    })(window, document);
+  </script>
 </main>
 
 <footer class="content">
-  <p>Last updated: 2022-01-17</p>
+  <p>Last updated: 2022-10-27</p>
 </footer>
 
 <style lang="scss">
@@ -201,14 +156,11 @@
     border-right: 0.125em solid #111;
     position: relative;
     flex: 1 0 auto;
-    padding: 1em;
   }
-
   button {
     width: 8em;
     height: 3em;
     margin: 0 auto;
-    margin-top: 0.8em;
     font-size: 1.5em;
     background-color: #fafafa;
     color: #111;
@@ -224,5 +176,13 @@
       background-color: #111111;
       cursor: pointer;
     }
+  }
+
+  footer {
+    padding: 1em;
+  }
+
+  div.contact-us-form-container {
+    padding: 0 ip !important;
   }
 </style>
