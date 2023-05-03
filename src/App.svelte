@@ -40,10 +40,6 @@
   />
 </main>
 
-<footer class="content">
-  <p>Last updated: 2022-10-27</p>
-</footer>
-
 <style lang="scss">
   h1,
   h2 {
