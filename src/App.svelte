@@ -80,6 +80,7 @@
         text-align: top;
         max-width: 20em;
         border-radius: 0.5em;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
 
       p {
