@@ -22,7 +22,7 @@
 <header>
   <h1>Jason Ribble</h1>
   <section>
-    <img src="images/profile_6038.jpg" alt="Jason Ribble Headshot" />
+    <img src="images/profile-2023-04-28.jpg" alt="Jason Ribble Headshot" />
     <p>
       Curious developer with a mindful approach to programming. My hobbies
       include baking sourdough, natural movement / fitness, playing saxophone,
@@ -78,8 +78,8 @@
 
       img {
         text-align: top;
-        max-width: 18.75em;
-        border-radius: 50%;
+        max-width: 20em;
+        border-radius: 0.5em;
       }
 
       p {
